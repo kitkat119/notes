@@ -4,6 +4,7 @@
   "description": "note app",
   "main": "app.js",
   "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1",
     "test": "test"
   },
   "repository": {
