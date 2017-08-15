@@ -7,7 +7,10 @@
   NoteController.prototype.getHTML = function() {
     var string = this.noteListView.parseNotes();
     var app = document.getElementById('app');
+    console.log(document);
+    console.log(app);
     app.innerHTML = string;
+
   }
   exports.NoteController = NoteController;
 })(this);
