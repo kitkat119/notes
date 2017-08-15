@@ -1,0 +1,22 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "note app",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kitkat119/notes.git"
+  },
+  "author": "kat and alex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kitkat119/notes/issues"
+  },
+  "homepage": "https://github.com/kitkat119/notes#readme",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}
