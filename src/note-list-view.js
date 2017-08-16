@@ -6,7 +6,7 @@
   NoteListView.prototype.parseNotes = function() {
     var htmlString = "<ul>";
     this.noteList.getNotes().forEach(function(note) {
-      htmlString += "<li><div>" + note.getText() + "</div></li>"
+      htmlString += "<li><div>" + note.getText().substr(0, 20) + "</div></li>";
     })
     htmlString += "</ul>";
     return htmlString;

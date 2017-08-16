@@ -8,4 +8,5 @@ describe('note list view', function() {
     noteList.addNote("Javascript is ok");
     assert.isTrue(noteListView.parseNotes() === htmlString);
   })
+
 });
