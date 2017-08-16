@@ -1,15 +1,13 @@
 (function(exports) {
-  function NoteController(noteList) {
+  function NoteController(noteList, element) {
     noteList.addNote("This is the best Notes app ever")
     this.noteListView = new NoteListView(noteList);
+    this.element = element;
   }
 
-  NoteController.prototype.getHTML = function() {
+  NoteController.prototype.insertHTML = function() {
     var string = this.noteListView.parseNotes();
-    var app = document.getElementById('app');
-    console.log(document);
-    console.log(app);
-    app.innerHTML = string;
+    return this.element.innerHTML = string;
 
   }
   exports.NoteController = NoteController;
