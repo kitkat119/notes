@@ -1,12 +1,10 @@
 describe('note list view', function() {
-  var htmlString = "<ul><li><div>I love Ruby</div></li><li><div>Javascript is ok</div></li></ul>"
+  var htmlString = "<ul><li><div><a href=\"#notes/0\">I love Ruby</a></div></li></ul>"
 
-  it("returns the note list as a html string", function() {
+  it("returns the note list as a html string with a URL", function() {
     var noteList = new NoteList(Note);
     var noteListView = new NoteListView(noteList);
     noteList.addNote("I love Ruby");
-    noteList.addNote("Javascript is ok");
     assert.isTrue(noteListView.parseNotes() === htmlString);
   })
-
 });
