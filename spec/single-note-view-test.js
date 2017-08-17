@@ -8,5 +8,6 @@ describe("Single note view", function() {
 
   it("returns a HTML string of the note" , function() {
     assert.isTrue(singleNoteView.getHTML() === "<div>Eyyy up</div>");
-  })
+  });
+
 });
