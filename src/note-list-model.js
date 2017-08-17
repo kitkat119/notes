@@ -1,7 +1,8 @@
 (function(exports) {
-  function NoteList() {
+  function NoteList(constructor) {
     this.notes = [];
-
+		this.noteCount = 0;
+		this.constructor = constructor;
   }
 
   NoteList.prototype.getNotes = function() {
@@ -9,8 +10,10 @@
   };
 
   NoteList.prototype.addNote = function(string) {
-    var note = this.constructor;
-    this.notes.push(new Note(string));
+		var note = this.constructor;
+    this.notes.push(new note(string, this.noteCount));
+		this.noteCount += 1;
   }
+
   exports.NoteList = NoteList;
 })(this);
