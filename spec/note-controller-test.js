@@ -17,12 +17,9 @@ describe("Note controller", function() {
 
 });
 	it("displays a single note", function() {
-
     //noteController.setUpEventListeners();
     noteController.displayNoteByID(0);
 		assert.isTrue(dummyElement.innerHTML === "<div>This is the best Notes app ever</div>");
-
 	});
-
 
 });

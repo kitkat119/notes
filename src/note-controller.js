@@ -1,11 +1,11 @@
 (function(exports) {
   function NoteController(noteList, element, SingleNoteView, noteListView) {
     this.noteList = noteList;
-    this.noteList.addNote("This is the best Notes app ever")
+    this.noteList.addNote("This is the best Notes app ever");
     this.noteListView = noteListView;
     this.element = element;
     this.singleNoteView = SingleNoteView;
-  };
+  }
 
   NoteController.prototype.insertHTML = function() {
     var string = this.noteListView.parseNotes();
@@ -17,7 +17,11 @@ NoteController.prototype.setUpEventListeners = function() {
   var self = this;
     window.addEventListener("hashchange", function(event) {
       self.updatePageContent();
-  });
+    });
+    window.document.getElementById("text").addEventListener("submit", function(event) {
+      console.log(event.target.elements[0].value);
+      event.preventDefault();
+    });
 };
   NoteController.prototype.updatePageContent = function() {
     var id = findNoteId();
