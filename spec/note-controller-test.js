@@ -7,7 +7,7 @@ describe("Note controller", function() {
 
   it("can be instantiated", function() {
     assert.isTrue(noteController instanceof NoteController);
-  })
+  });
 
   it("inserts the HTML string into the app element" , function() {
 
@@ -15,11 +15,11 @@ describe("Note controller", function() {
 
     assert.isTrue(dummyElement.innerHTML === htmlString);
 
-})
-	it("returns the content of a note when it is clicked on", function() {
+});
+	it("displays a single note", function() {
 
-    noteController.setUpEventListeners();
-    noteController.updatePageContent();
+    //noteController.setUpEventListeners();
+    noteController.displayNoteByID(0);
 		assert.isTrue(dummyElement.innerHTML === "<div>This is the best Notes app ever</div>");
 
 	});

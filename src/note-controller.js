@@ -15,41 +15,22 @@
 
 NoteController.prototype.setUpEventListeners = function() {
   var self = this;
-  window.addEventListener("hashchange", function(event) {
-    self.updatePageContent();
-});
-}
+    window.addEventListener("hashchange", function(event) {
+      self.updatePageContent();
+  });
+};
   NoteController.prototype.updatePageContent = function() {
+    var id = findNoteId();
+    displayNotebyID(id);
+  };
+  NoteController.prototype.displayNoteByID = function(id) {
+    var singleNote = new this.singleNoteView(this.noteList.getNotes()[id]);
+    this.element.innerHTML = singleNote.getHTML();
+  };
+  NoteController.prototype.findNoteId = function() {
     var id = window.location.hash.split("notes/")[1];
-    console.log(window.location);
-  	var singleNote = new this.singleNoteView(this.noteList.getNotes()[id]);
-    	this.element.innerHTML = singleNote.getHTML();
-
-  }
-  NoteController.prototype.findById = function() {
-
-  }
-
-
-	// NoteController.prototype.updatePageContent = function() {
-	// 	window.addEventListener("hashchange", function {
-  //
-	// 	}) #put somemethod inside anon function
-	// };
-  //
-	// NoteController.prototype.getIdFromUrl = function(location) {
-	// 	console.log(location.hash.split("#")[1]);
-	// 	return location.hash.split("#")[1];
-	// };
-  //
-	// NoteController.prototype.getNote = function() {
-	// 	noteList.getNotes()[locations.hash.split("#")[1]];
-	// };
-  //
-	// NoteController.prototype.assignNoteContent = function() {
-	// 	var singleNoteView = new SingleNoteView(noteList.getNotes()[locations.hash.split("#")[1]]);
-	// 	document.getElementById('noteContent').innerHTML = singleNoteView.getHTML()
-	// };
+    return id;
+  };
 
   exports.NoteController = NoteController;
 })(this);
