@@ -1,6 +1,8 @@
 describe("Note controller", function() {
+
     var dummyElement = document.createElement("div");
     var noteList = new NoteList(Note);
+    noteList.addNote("This is the best Notes app ever");
     var noteListView = new NoteListView(noteList);
     var noteController = new NoteController(noteList, dummyElement, SingleNoteView, noteListView);
     var htmlString = "<ul><li><div><a href=\"#notes/0\">This is the best Not</a></div></li></ul>";
