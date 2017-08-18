@@ -19,6 +19,7 @@ NoteController.prototype.setUpEventListeners = function() {
       self.updatePageContent();
     });
     window.document.getElementById("text").addEventListener("submit", function(event) {
+      console.log();
       console.log(event.target.elements[0].value);
       event.preventDefault();
       self.noteList.addNote(event.target.elements[0].value);

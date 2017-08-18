@@ -1,4 +1,4 @@
-describe('note list view', function() {
+describe('Note list view', function() {
   var htmlString = "<ul><li><div><a href=\"#notes/0\">I love Ruby</a></div></li></ul>"
 
   it("returns the note list as a html string with a URL", function() {
