@@ -1,12 +1,11 @@
 (function(exports) {
-  function SingleNoteView(constructor) {
-    this.constructor = constructor;
+  function SingleNoteView(note) {
+    this.note = note;
   }
 
   SingleNoteView.prototype.getHTML = function() {
-    var note = this.constructor;
     var htmlString = "<div>";
-    htmlString += note.getText() + "</div>";
+    htmlString += this.note.getText() + "</div>";
     return htmlString;
   };
   exports.SingleNoteView = SingleNoteView;

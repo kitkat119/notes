@@ -1,7 +1,8 @@
 describe("Note controller", function() {
     var dummyElement = document.createElement("div");
     var noteList = new NoteList(Note);
-    var noteController = new NoteController(noteList, dummyElement);
+    var noteListView = new NoteListView(noteList);
+    var noteController = new NoteController(noteList, dummyElement, SingleNoteView, noteListView);
     var htmlString = "<ul><li><div><a href=\"#notes/0\">This is the best Not</a></div></li></ul>";
 
   it("can be instantiated", function() {
@@ -9,29 +10,18 @@ describe("Note controller", function() {
   })
 
   it("inserts the HTML string into the app element" , function() {
-    assert.isTrue(noteController.insertHTML() === htmlString);
+
+    noteController.insertHTML();
+
+    assert.isTrue(dummyElement.innerHTML === htmlString);
+
 })
 	it("returns the content of a note when it is clicked on", function() {
 
-		function noteListMock(noteMock) {
-			this.noteMock = noteMock
-		}
+    noteController.setUpEventListeners();
+    noteController.updatePageContent();
+		assert.isTrue(dummyElement.innerHTML === "<div>This is the best Notes app ever</div>");
 
-		function noteMock(string, id) {
-			this.text = string;
-			this.id = id;
-		}
-
-		noteListMock = new noteListMock(noteMock);
-		noteListMock.addNote("I am a string");
-
-		noteController = new NoteController(noteListMock, dummyElement);
-
-		function singleNoteViewMock() {};
-
-		var singleNoteViewMock = new singleNoteViewMock(noteListMock[0]);
-
-		assert.isTrue(noteController.insertHTML() === singleNoteViewMock.getHTML());
 	});
 
 
